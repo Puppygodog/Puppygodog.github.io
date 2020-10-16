@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <canvas id = "game"></canvas>
+<script>
+  var Key = {
+  _pressed: {},
+  
+  LEFT: 37,
+  UP: 38,
+  RIGHT: 39,
+  DOWN: 40,
+  
+  isDown: function(keyCode){
+    return this._pressed[keyCode];
+  },
+  
+  onKeydown: function(event) {
+    this._pressed[event.keyCode] = true;
+  },
+  
+  onKeyup: function(event) {
+    delete this._pressed[event.keyCode];
+  }
+ };
+  
+  window.addEventListener('keyup', function(event) {Key.onKeyup(event); }, false);
+  window.addEventListener('keydown', function(event) {Key.onKeydown(event); }, false);
+  
+  var x = 50;
+  var y = 50;
+  
+  var canvas = document.getElementById('game');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  
+  var ctx = canvas.getContext('2d');
+  
+  var goalx = math.random() * window.innerwidth
+  var goalx = math.random() * window.innerheight
+  var = playerSize = 25
+  var = goalsize = 15
+  
+  
+  
+var speed = 3;
+
+function draw(){
+	ctx.clearRect(0,0, canvas.width,canvas.height
+    
+    if(Key.isDown(Key.UP))}
+    y -= speed;
+    
+    else if(Key.isDown(Key.DOWN))}
+    y += speed;
+    
+    else if(Key.isDown(Key.LEFT))}
+    x -= speed;
+    
+    else if(Key.isDown(Key.RIGHT))}
+    x += speed;
+    }
+    
+    if((Math.abs(x-goalX))**2+ (Math.abs(y-goalY))**2 < (playersSize+goalSize)**2){
+    playerSize += 5
+    goalX = Math.random()*canvas.width;
+    goalY = Math.random()*canvas.height;
+    }
+    
+    var charachter = New Path2d();
+    charachter.arc(x,y, playerSize, 0, 2*Math.PI
+    
+    var goal = New Path2d();
+    goal.arc(goalX,goalY, goalSize, 0, 2*Math.PI
+    
+    ctx.fillStyle - "#00FF00#"
+    ctx.fill(charachter);
+    ctx.fillStyle - "#FF0000#"
+    ctx.fill(goal)
+    }
+    setInterval(draw, 10);
