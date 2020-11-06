@@ -11,6 +11,7 @@ canvas{ border: 2px solid black;}
 <script>
   var Key = {
   _pressed: {},
+  var toggle = 1
  
   LEFT: 37,
   UP: 38,
@@ -78,14 +79,22 @@ canvas{ border: 2px solid black;}
       x= x%canvas.width;
       }
     }
-   
+
     if ((Math.abs(x-goalX))**2 + (Math.abs(y-goalY))**2 < (playerSize+goalSize)**2){
       playerSize += 5;
       goalX = Math.random() * canvas.width;
       goalY = Math.random() * canvas.height;
     }
-    var character = new Path2D();
-    character.arc(x, y, playerSize, 0, 2 * Math.PI)
+    var character = new Image();
+   toggle +=1;
+   toggle %= 1
+   if(toggle > 50){
+   character.src = 'Dragon1.png';
+   } else {
+   character.src = 'Dragon2.png';}
+    
+   character.addEventListener('load', function() {
+     ctx.drawImage(character, x, y)
    
     var goal = new Path2D();
     goal.arc(goalX, goalY, goalSize, 0, 2 * Math.PI)
