@@ -7,6 +7,8 @@ canvas{ border: 2px solid black;}
 </style>
 </head>
 <body>
+  <img id="Dragon1"  src="Dragon1.png" alt"Image failed to load" style="display:none">
+  <img id="Dragon2"  src="Dragon2.png" alt"Image failed to load" style="display:none">
   <canvas id = "game"></canvas>
 <script>
   var Key = {
@@ -85,15 +87,17 @@ canvas{ border: 2px solid black;}
       goalX = Math.random() * canvas.width;
       goalY = Math.random() * canvas.height;
     }
-    var character = new Image();
+    //var character = new Image();
    toggle +=1;
    toggle %= 100;
-   if(toggle > 50){
-   character.src = 'Dragon1.png';
+   
+    if(toggle > 50){
+   var charachter = document.getElementById("Dragon1");
    } else {
-   character.src = 'Dragon2.png';}
+   var charachter = document.getElementById("Dragon2");
+   
     
-   character.addEventListener('load', function() {
+   
    ctx.drawImage(character, x, y)
    }, false);
      
