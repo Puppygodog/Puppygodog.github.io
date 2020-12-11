@@ -83,7 +83,7 @@ canvas{ border: 2px solid black;}
   var y = 50;
   var toggle = 1;
   
-  var grass1 = document.getElementById("grass1");
+
   var rock1 = document.getElementById("rock1");
   var ctx = canvas.getContext('2d');
   
@@ -99,7 +99,7 @@ canvas{ border: 2px solid black;}
     ctx.fillStyle = "rgb(24, 255, 0)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     drawObs(OBSTACLES,grid);
-    ctx.drawImage(grass1, 200, 200);
+
      
     //MOVE UP
     if(Key.isDown(Key.UP)){
