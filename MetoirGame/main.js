@@ -81,7 +81,7 @@ function draw(){
        })
    }
    if (Math.random()<0.005){
-       meteorChance += 0.1;
+       meteorChance += 0.001;
    }
 }
 
