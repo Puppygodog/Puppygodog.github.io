@@ -31,7 +31,7 @@ function draw(){
     noFill();
     stroke(255);
     strokeWeight(3);
-    rect(player.x,player.y,playerImage.width,playerImage.height);
+    //rect(player.x,player.y,playerImage.width,playerImage.height);
     rect(10,10,100,20);
     fill(0,255,0);
     strokeWeight(0);
@@ -64,7 +64,7 @@ function draw(){
        }
         stroke(255);
         strokeWeight(3);
-        rect(meteor.x,meteor.y,48,48);
+        //rect(meteor.x,meteor.y,48,48);
        meteor.yVel += 0.25;
        meteor.y += meteor.yVel;
 
