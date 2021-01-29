@@ -20,8 +20,8 @@ let meteors = [{
 let keysPressed = {};
 function preload(){
     stars = loadImage("stars.png");
-    playerImage = loadImage("link.png");
-    meteorImage = loadImage("spaceship.png");
+    playerImage = loadImage("spaceship.png");
+    meteorImage = loadImage("fireball.png");
 }
 
 function setup(){
