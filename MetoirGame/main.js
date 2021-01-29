@@ -20,7 +20,7 @@ let meteors = [{
 let keysPressed = {};
 function preload(){
     stars = loadImage("stars.png");
-    playerImage = loadImage("rocket.png");
+    playerImage = loadImage("link.png");
     meteorImage = loadImage("fireball.png");
 }
 
