@@ -2,6 +2,8 @@ let stars;
 let playerImage;
 let meteorImage;
 let meteorChance = 0.02;
+let score = 0
+let GAMEOVER = 0
 let player = {
     x:500,
     y:550,
@@ -9,6 +11,7 @@ let player = {
     xVel:0,
     dazed:0
 }
+
 let meteors = [{
     x:500,
     y:0,
@@ -17,25 +20,32 @@ let meteors = [{
 let keysPressed = {};
 function preload(){
     stars = loadImage("stars.png");
-    playerImage = loadImage("link.png");
-    meteorImage = loadImage("unnamed.png");
+    playerImage = loadImage("rocket.png");
+    meteorImage = loadImage("fireball.png");
 }
 
 function setup(){
     createCanvas(1000,700);
 }
 function draw(){
-    background(0);
-    image(stars,0,0,1000,700);
-    image(playerImage, player.x, player.y);
-    noFill();
-    stroke(255);
-    strokeWeight(3);
-    //rect(player.x,player.y,playerImage.width,playerImage.height);
-    rect(10,10,100,20);
-    fill(0,255,0);
-    strokeWeight(0);
-    rect(10,10, player.hp * 0.98,18);
+    if(GAMEOVER == 0){
+        background(0);
+        image(stars,0,0,1000,700);
+        image(playerImage, player.x, player.y);
+        
+        textSize(32)
+        fill(255, 255, 255)
+        text(score, 900, 40)
+        
+        
+        noFill();
+        stroke(255);
+        strokeWeight(3);
+        //rect(player.x,player.y,playerImage.width,playerImage.height);
+        rect(10,10,100,20);
+        fill(0,255,0);
+        strokeWeight(0);
+        rect(10,10, player.hp * 0.98,18);
     if (keysPressed["ArrowRight"]&& player.dazed <= 0){
         player.xVel +=1;
     }else if (keysPressed["ArrowLeft"]&& player.dazed <= 0){
@@ -60,7 +70,7 @@ function draw(){
            stroke(255,0,0);
        } else{
            stroke(255);
-        if 
+        
        }
         stroke(255);
         strokeWeight(3);
@@ -72,6 +82,7 @@ function draw(){
    meteors.forEach((meteor,i) =>{
        if(meteor.y> height){
            meteors.splice(i,1);
+           score += 1
        }
    })
    if(Math.random()<meteorChance){
@@ -85,9 +96,12 @@ function draw(){
        meteorChance += 0.1;
    }
 }
-
-function keyPressed(){
-    keysPressed[key]  = true;
+}
+if (player.hp <= 0){
+    GAMEOVER = 1;
+}
+    function keyPressed(){
+keysPressed[key]  = true;
 }
 
 function keyReleased(){
@@ -95,17 +109,18 @@ function keyReleased(){
 }
 
 function overlappingRects(x1, y1, w1, h1, x2, y2, w2, h2) {
-    if (x1 >= x2 && x1 <= x2 + w2 && y1 >= y2 && y1 <= y2 + h2) {
-    return true;
+    
+    if ((x1<=x2 && x2<=x1+w1)&&(y1<=y2 && y2<=y1+h1)){
+        return true;
     }
-    if (x1 + w1 >= x2 && x1 + w1 <= x2 + w2 && y1 >= y2 && y1 <= y2 + h2) {
-    return true;
+    if ((x1<=x2+w2 && x2+w2<=x1+w1)&&(y1<=y2 && y2<=y1+h1)){
+        return true;
     }
-    /*if (x1 + w1 >= x2 && x1 + w1 <= x2 + w2 && y1 + h1 >= y2 && y1 + h1 <= y2 + h2) {
-    return true;
+    if ((x1<=x2 && x2<=x1+w1)&&(y1<=y2+h2 && y2+h2<=y1+h1)){
+        return true;
     }
-    if (x1 >= x2 && x1 <= x2 + w2 && y1 + h1 >= y2 && y1 + h1 <= y2 + h2) {
-    return true;
-    }*/
+    if ((x1<=x2+w2 && x2+w2<=x1+w1)&&(y1<=y2+h2 && y2+h2<=y1+h1)){
+        return true;
+    }
     return false;
 }
