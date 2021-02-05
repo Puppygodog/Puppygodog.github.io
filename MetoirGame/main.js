@@ -21,7 +21,7 @@ let keysPressed = {};
 function preload(){
     stars = loadImage("stars.png");
     playerImage = loadImage("link.png");
-    meteorImage = loadImage("fireball.png");
+    meteorImage = loadImage("unnamed.png");
 }
 
 function setup(){
