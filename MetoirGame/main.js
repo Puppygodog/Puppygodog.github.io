@@ -96,9 +96,10 @@ function draw(){
        meteorChance += 0.01;
    }
 }
-}
+
 if (player.hp <= 0){
     GAMEOVER = 1;
+}
 }
     function keyPressed(){
 keysPressed[key]  = true;
