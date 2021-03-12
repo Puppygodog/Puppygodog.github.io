@@ -50,7 +50,7 @@
         var previewCenterY = 97;
         var mainFont = 'bold 48px monospace';
         var smallFont = 'bold 18px monospace';
-        var colors = ['green', 'red', 'blue', 'purple', 'orange', 'blueviolet', 'magenta'];
+        var colors = ['green', 'red', 'blue', 'purple', 'orange', 'blueviolet', 'magenta', 'dodgerblue', 'mediumseagreen'];
         var gridRect = { x: 46, y: 47, w: 308, h: 517 };
         var previewRect = { x: 387, y: 47, w: 200, h: 200 };
         var titleRect = { x: 100, y: 95, w: 252, h: 100 };
@@ -224,11 +224,12 @@
             ZShape: [[0, -1], [0, 0], [-1, 0], [-1, 1]],
             SShape: [[0, -1], [0, 0], [1, 0], [1, 1]],
             IShape: [[0, -1], [0, 0], [0, 1], [0, 2]],
-            LineShape: [[-4, 0], [-3, 0], [-2, 0], [-1, 0], [0, 0], [1, 0], [2, 0], [3, 0], [4, 0]]
+            LineShape: [[-4, 0], [-3, 0], [-2, 0], [-1, 0], [0, 0], [1, 0], [2, 0], [3, 0], [4, 0]],
             TShape: [[-1, 0], [0, 0], [1, 0], [0, 1]],
             Square: [[0, 0], [1, 0], [0, 1], [1, 1]],
             LShape: [[-1, -1], [0, -1], [0, 0], [0, 1]],
-            JShape: [[1, -1], [0, -1], [0, 0], [0, 1]]
+            JShape: [[1, -1], [0, -1], [0, 0], [0, 1]],
+            XShape: [[0, 0], [2, 2], [0, 2], [2, 0]]
         };
  
         function getRandomShape() {
