@@ -31,7 +31,7 @@
     var brickOffsetLeft = 30;
     var score = 0;
     var lives = 3;
-    var beep = new sound("recording1.wav")
+    var beep = new sound("recording1.wav");
     var bricks = [];
     for(var c=0; c<brickColumnCount; c++) {
         bricks[c] = [];
@@ -92,7 +92,7 @@
                         b.status = 0;
                         score++;
 
-                        recording1.wav.play()
+                        beep.play()
                         if(score == brickRowCount*brickColumnCount) {
                             alert("YOU WIN, CONGRATS!");
                             document.location.reload();
