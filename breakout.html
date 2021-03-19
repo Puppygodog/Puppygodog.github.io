@@ -91,6 +91,8 @@
                         dy = -dy;
                         b.status = 0;
                         score++;
+
+                        recording1.wav.play()
                         if(score == brickRowCount*brickColumnCount) {
                             alert("YOU WIN, CONGRATS!");
                             document.location.reload();
